@@ -24,6 +24,6 @@
         package = pkgs.nerd-fonts.symbols-only;
       }
     ];
-    extraConfig = "font-size=12";
+    extraConfig = "font-size=20";
   };
 }
