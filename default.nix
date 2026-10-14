@@ -5,11 +5,6 @@
   ...
 }:
 
-let
-  iosevkaTerm = pkgs.iosevka-bin.override {
-    variant = "SGr-IosevkaTerm";
-  };
-in
 {
   services.kmscon = {
     enable = true;
@@ -17,11 +12,11 @@ in
     useXkbConfig = lib.mkDefault config.services.xserver.enable;
     fonts = [
       {
-        name = "Iosevka Term";
-        package = iosevkaTerm;
+        name = "Iosevka";
+        package = pkgs.iosevka;
       }
       {
-        name = "Sarasa Mono SC";
+        name = "Sarasa Gothic SC";
         package = pkgs.sarasa-gothic;
       }
       {
@@ -29,10 +24,6 @@ in
         package = pkgs.nerd-fonts.symbols-only;
       }
     ];
-    extraConfig = ''
-      font-engine=freetype
-      multi-monitor=largest
-      font-size=20
-    '';
+    extraConfig = "font-size=20";
   };
 }
